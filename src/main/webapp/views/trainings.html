@@ -1,0 +1,134 @@
+<div>
+
+    <h2>Trainings</h2>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveTrainingModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Training
+    </button>
+    <div class="modal fade" id="saveTrainingModal" tabindex="-1" role="dialog" aria-labelledby="myTrainingLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myTrainingLabel">Create or edit a Training</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="training.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Identifier</label>
+                            <input type="number" class="form-control"
+                                   ng-model="training.identifier">
+                        </div>
+                        <div class="form-group">
+                            <label>Training_number</label>
+                            <input type="number" class="form-control"
+                                   ng-model="training.training_number">
+                        </div>
+                        <div class="form-group">
+                            <label>User</label>
+                            <input type="text" class="form-control"
+                                   ng-model="training.user">
+                        </div>
+                        <div class="form-group">
+                            <label>Type</label>
+                            <input type="text" class="form-control"
+                                   ng-model="training.type">
+                        </div>
+                        <div class="form-group">
+                            <label>Commentary</label>
+                            <input type="text" class="form-control"
+                                   ng-model="training.commentary">
+                        </div>
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" class="form-control"
+                                   ng-model="training.date">
+                        </div>
+                        <div class="form-group">
+                            <label>Duration</label>
+                            <input type="number" class="form-control"
+                                   ng-model="training.duration">
+                        </div>
+                        <div class="form-group">
+                            <label>Warming</label>
+                            <input type="text" class="form-control"
+                                   ng-model="training.warming">
+                        </div>
+                        <div class="form-group">
+                            <label>Stretching</label>
+                            <input type="text" class="form-control"
+                                   ng-model="training.stretching">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Identifier</th>
+                    <th>Training_number</th>
+                    <th>User</th>
+                    <th>Type</th>
+                    <th>Commentary</th>
+                    <th>Date</th>
+                    <th>Duration</th>
+                    <th>Warming</th>
+                    <th>Stretching</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="training in trainings">
+                    <td>{{training.id}}</td>
+                    <td>{{training.identifier}}</td>
+                    <td>{{training.training_number}}</td>
+                    <td>{{training.user}}</td>
+                    <td>{{training.type}}</td>
+                    <td>{{training.commentary}}</td>
+                    <td>{{training.date}}</td>
+                    <td>{{training.duration}}</td>
+                    <td>{{training.warming}}</td>
+                    <td>{{training.stretching}}</td>
+                    <td>
+                        <button type="submit"
+                                ng-click="update(training.id)"
+                                class="btn btn-default">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(training.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
