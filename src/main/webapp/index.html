@@ -49,6 +49,7 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu" ng-controller="MenuController">
+                                <li ng-switch-when="true"><a href="#/training"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;training</a></li>
                                 <!-- JHipster will add entities to the menu here -->
                             </ul>
                         </li>
@@ -170,6 +171,9 @@
         <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
         <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js"></script>
         <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js"></script>
+        <script src="scripts/training/router_training.js"></script>
+        <script src="scripts/training/controller_training.js"></script>
+        <script src="scripts/training/service_training.js"></script>
         <!-- endbuild -->
 </body>
 </html>
