@@ -1,0 +1,106 @@
+<div>
+
+    <h2>Executions</h2>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveExecutionModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Execution
+    </button>
+    <div class="modal fade" id="saveExecutionModal" tabindex="-1" role="dialog" aria-labelledby="myExecutionLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myExecutionLabel">Create or edit a Execution</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="execution.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Training_identifier</label>
+                            <input type="number" class="form-control"
+                                   ng-model="execution.training_identifier">
+                        </div>
+                        <div class="form-group">
+                            <label>Exercice_identifier</label>
+                            <input type="text" class="form-control"
+                                   ng-model="execution.exercice_identifier">
+                        </div>
+                        <div class="form-group">
+                            <label>Set</label>
+                            <input type="number" class="form-control"
+                                   ng-model="execution.set">
+                        </div>
+                        <div class="form-group">
+                            <label>Commentary</label>
+                            <input type="text" class="form-control"
+                                   ng-model="execution.commentary">
+                        </div>
+                        <div class="form-group">
+                            <label>Difficulty</label>
+                            <input type="text" class="form-control"
+                                   ng-model="execution.difficulty">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Training_identifier</th>
+                    <th>Exercice_identifier</th>
+                    <th>Set</th>
+                    <th>Commentary</th>
+                    <th>Difficulty</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="execution in executions">
+                    <td>{{execution.id}}</td>
+                    <td>{{execution.training_identifier}}</td>
+                    <td>{{execution.exercice_identifier}}</td>
+                    <td>{{execution.set}}</td>
+                    <td>{{execution.commentary}}</td>
+                    <td>{{execution.difficulty}}</td>
+                    <td>
+                        <button type="submit"
+                                ng-click="update(execution.id)"
+                                class="btn btn-default">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(execution.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
